@@ -1,0 +1,24 @@
+{% extends 'sklep/main.html' %}
+{% load static %}
+{% block content %}
+
+<html>
+<head>
+    <title>Logowanie</title>
+</head>
+<body>
+    <h2>Logowanie</h2>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <label for="username">Nazwa użytkownika:</label>
+        <input type="text" name="username" id="username" required><br><br>
+        <label for="password">Hasło:</label>
+        <input type="password" name="password" id="password" required><br><br>
+        <input type="submit" value="Zaloguj">
+    </form>
+    <br>
+    <p>Nie masz jeszcze konta? <a href="{% url 'register' %}">Zarejestruj się</a></p>
+</body>
+</html>
+
+{% endblock content %}

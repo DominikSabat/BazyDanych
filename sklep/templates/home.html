@@ -1,0 +1,47 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Strona główna</title>
+    <style>
+        .product-box {
+            width: 200px;
+            height: 200px;
+            background-color: #f0f0f0;
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Strona główna</h1>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="/register">Zaloguj się</a>
+        <a href="/cart">Koszyk</a>
+        <a href="/wishlist">Wishlist</a>
+    </nav>
+
+    <!-- Produkty -->
+    <div id="product-container">
+    {% for product in products %}
+    <div class="product-box" onclick="redirectToProduct('{{ product.0 }}')">
+        <h3>{{ product.1 }}</h3>
+        <p>Cena: {{ product.2 }}</p>
+        <p>Rozmiar: {{ product.3 }}</p>
+        <!-- Dodaj inne informacje o produkcie, które chcesz wyświetlić -->
+    </div>
+    {% endfor %}
+    </div>
+ <script>
+        // Funkcja do przekierowania na stronę produktu
+        function redirectToProduct(productId) {
+            window.location.href = '/product/' + productId;
+        }
+    </script>
+
+</body>
+</html>

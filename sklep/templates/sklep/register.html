@@ -1,0 +1,31 @@
+{% extends 'sklep/main.html' %}
+{% load static %}
+{% block content %}
+
+<html>
+<head>
+    <title>Rejestracja</title>
+</head>
+<body>
+    <h2>Rejestracja</h2>
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required><br><br>
+        <label for="first_name">Imię:</label>
+        <input type="text" name="first_name" id="first_name" required><br><br>
+        <label for="last_name">Nazwisko:</label>
+        <input type="text" name="last_name" id="last_name" required><br><br>
+        <label for="address">Adres:</label>
+        <input type="text" name="address" id="address" required><br><br>
+        <label for="password">Hasło:</label>
+        <input type="password" name="password" id="password" required><br><br>
+        <label for="confirm_password">Potwierdź hasło:</label>
+        <input type="password" name="confirm_password" id="confirm_password" required><br><br>
+        <input type="submit" value="Zarejestruj">
+    </form>
+    <br>
+    <p>Masz już konto? <a href="{% url 'login' %}">Zaloguj się</a></p>
+</body>
+</html>
+{% endblock content %}
